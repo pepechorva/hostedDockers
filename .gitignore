@@ -1,6 +1,42 @@
-composer.phar
-/vendor/
+#ignore all:
+*
 
-# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+#except:
+!.gitignore
+!README.md
+!LICENSE  
+
+#scripts
+!docker-install.sh  
+!launchDockers.sh  
+
+#heimdall
+!heimdall/
+!heimdall/docker-compose.yml
+
+#mariaDB
+!mariadb/
+!mariadb/docker-compose.yml
+!mariadb/csvToDB.py
+
+#phpmyadmin
+!phpmyadmin/
+!phpmyadmin/docker-compose.yml
+!phpmyadmin/config.inc.php
+
+#partdb  
+!partdb/ 
+!partdb/README.md
+!partdb/docker-compose.yml
+!partdb/config.php
+
+
+#portainer  
+!portainer/ 
+!portainer/docker-compose.yml
+
+#ROS
+!ROS/
+!ROS/docker-compose.yml
+!ROS/listener.py
+!ROS/talker.py

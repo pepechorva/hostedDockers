@@ -1,0 +1,35 @@
+services:
+  ros_master:
+    image: ros:noetic-ros-core
+    container_name: ros_master
+    ports:
+      - "11311:11311"
+    command: roscore
+    networks:
+       - serversNET
+
+  talker:
+    image: ros:noetic-ros-base
+    container_name: talker
+    depends_on:
+      - ros_master
+    command: rosrun rospy_tutorials talker
+    environment:
+      ROS_MASTER_URI: http://roscore:11311
+    networks:
+      - serversNET
+
+  listener:
+    image: ros:noetic-ros-base
+    container_name: listener
+    depends_on:
+      - ros_master
+    command: rosrun rospy_tutorials listener
+    environment:
+      ROS_MASTER_URI: http://roscore:11311
+    networks:
+      - serversNET
+
+networks:
+  serversNET:
+    external: true

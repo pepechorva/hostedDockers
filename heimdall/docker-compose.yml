@@ -1,0 +1,18 @@
+services:
+  heimdall:
+    image: linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - netw
+      - TZ=Europe/Madrid
+    volumes:
+      - ./appdata/config:/config
+    networks:
+      - serversNET
+    ports:
+      - 81:80
+    restart: unless-stopped
+
+networks:
+  serversNET:
+    external: true 

@@ -1,0 +1,19 @@
+services:
+  partdb:
+    image: jbtronics/part-db:latest
+    container_name: partdb
+    ports:
+      - '83:80'
+    environment:
+      PMA_ARBITRARY: 1
+    networks:
+      - serversNET
+    volumes:
+      - ./partdb-data:/var/www/html/data
+      #create a folder named partdb-data in the same directory as the docker-compose.yml file
+      # and give it the necessary permissions (777), create backup, media and log folders in it (with same permissions).
+    restart: always
+
+networks:
+  serversNET:
+    external: true
