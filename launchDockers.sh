@@ -77,7 +77,7 @@ stop_container() {
 }
 
 # Process command line arguments
-while getopts ":h:l:asudne" opt; do
+while getopts "hl:a:s:u:d:n:e" opt; do
   case $opt in
     h)
       show_help
@@ -102,6 +102,7 @@ while getopts ":h:l:asudne" opt; do
       exit 0
       ;;
     u)
+      echo "Iniciando contenedor $OPTARG..."
       if [ -n "$OPTARG" ]; then
         start_container "$OPTARG"
       else
