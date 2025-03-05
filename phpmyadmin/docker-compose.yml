@@ -10,7 +10,7 @@ services:
     networks:
       - serversNET
     volumes:
-      - ./config.inc.php:/etc/phpmyadmin/config.inc.php 
+      - config.inc.php:/etc/phpmyadmin/config.inc.php 
 
 networks:
   serversNET:
